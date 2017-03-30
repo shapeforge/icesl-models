@@ -37,7 +37,7 @@ To remesh the model into a lighter triangle mesh we recommend
 Graphite https://gforge.inria.fr/frs/?group_id=1465
 
 ------------------------------------------------------
-Released under the Creative Commons License CC-BY-NC-ND
+Released under the Creative Commons License CC-BY-SA
 Design (c) Sylvain Lefebvre - Inria
 ------------------------------------------------------
 ]]
