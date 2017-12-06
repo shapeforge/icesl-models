@@ -1,6 +1,6 @@
 -- inspired from testsphere in MB customizer
 
-dofile(Path .. '../../models/libs/bar.lua')
+dofile(Path .. '../../icesl-models/libs/bar.lua')
 
 if ui_scalar then
 	nbr=math.floor(ui_scalar('num',16, 5,24))
