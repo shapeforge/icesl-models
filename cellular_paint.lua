@@ -15,6 +15,8 @@ end
 
 f = ui_field('paint to add cells',bx:min_corner(),bx:max_corner())
 
+ui_file(script_file .. '.xml') 
+
 if not s then
   s = distribute(shape, 0.7)
 end
