@@ -113,12 +113,12 @@ end
 function print()
 	return scale(1) * 
 	union({
-		handle(body()),
-		handle(translate(15,-13,0) * rotate(0,0,90) * head()),
-		handle(translate(-4,-25,0) * rotate(0,0,45) * fleg()),
-		handle(translate(18,-25,0) * rotate(0,0,-45) * mirror(X) * fleg()),
-		handle(translate(-4,-40,0) * mirror(X)	* bleg()),
-		handle(translate(18,-40,0) * bleg())
+		body(),
+		translate(15,-13,0) * rotate(0,0,90) * head(),
+		translate(-4,-25,0) * rotate(0,0,45) * fleg(),
+		translate(18,-25,0) * rotate(0,0,-45) * mirror(X) * fleg(),
+		translate(-4,-40,0) * mirror(X)	* bleg(),
+		translate(18,-40,0) * bleg()
 	})
 end
 
