@@ -7,7 +7,8 @@ pts = {v( 0.0,  0.0,  0.5),
 prim = Void
 for i = 1, #pts do 
   for j = i, #pts do 
-      prim = union(prim, cylinder(0.05, pts[i], pts[j]))
+      prim = union(prim,
+             cylinder(0.05, pts[i], pts[j]))
   end
   prim = union(prim, sphere(0.05, pts[i]))
 end 
@@ -18,5 +19,4 @@ u_pyr = translate(0, 0, 17.7) * u_pyr
 
 emit(d_pyr, 0)
 emit(u_pyr, 1)
-
 -- %line_number février 2018 # Découvrir IceSL --
