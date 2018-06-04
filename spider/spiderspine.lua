@@ -75,9 +75,9 @@ function spiderspine()
 	   })
 	-- add support
 	support = translate(0,-(axel_side_length+thickness*2+square_axel_len),-bore_side/2) *
-	 union({ scale(bore_side*2,0.45,wheel_radius) * translate(0,0.5,-0.5) * box(1),
-		     translate(bore_side,-bore_side,0) * scale(0.45,bore_side*2,wheel_radius) * translate(0,0.5,-0.5) * box(1),
-			 translate(-bore_side,-bore_side,0) * scale(0.45,bore_side*2,wheel_radius) * translate(0,0.5,-0.5) * box(1) 
+	 union({ scale(bore_side*2,0.5,wheel_radius) * translate(0,0.5,-0.5) * box(1),
+		     translate(bore_side,-bore_side,0) * scale(0.5,bore_side*2,wheel_radius) * translate(0,0.5,-0.5) * box(1),
+			 translate(-bore_side,-bore_side,0) * scale(0.5,bore_side*2,wheel_radius) * translate(0,0.5,-0.5) * box(1) 
 		   })
     axel_side = union(translate(-thickness*Y) * axel_side,support)
 	-- add both sides
