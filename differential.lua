@@ -7,7 +7,7 @@ n1 = 10
 n2 = 22
 cp = 180
 
-cd2 = 11
+cd2 = 12
 cd1 = (n1*cp) / (2*180*sin(90 - asin(n2*cp/(2*180*cd2)) ) )
 
 params_b = {
