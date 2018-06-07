@@ -5,17 +5,21 @@
 --   cover thickness = 0
 --   0 shell
 
--- I recommand deactivating 'View => Execute script automatically' as the loops filling the scripts are somewhat slow
+-- I recommend deactivating 'View => Execute script automatically' as the loops filling the fields are somewhat slow
 
 r = 50
 h = 5
+
+set_setting_value('infill_type_0','Polyfoam')
+set_setting_value('num_shells_0',0)
+set_setting_value('cover_thickness_mm_0',0)
 
 emit(cylinder(r,h))
 
 -- Now we create fields by scripting
 -- As of today all fields have to be 64x64x64
 
--- Allocate the field as 3D textures
+-- Allocate the fields as 3D textures, with a single 8 bit channel
 density = tex3d_r8f(64,64,64)
 angle   = tex3d_r8f(64,64,64)
 shrink  = tex3d_r8f(64,64,64)
@@ -25,8 +29,7 @@ shrink  = tex3d_r8f(64,64,64)
 --   density, 0 is min, 1 is max
 --   angle,   0 is 0 degree, 1 is 360 degrees
 --   etc.
--- The texture can hold three compoments, only the first is used
--- in most cases.
+-- Only the first component of the textures is used ('red')
 for i = 0,63 do
     for j = 0,63 do
         for k = 0,63 do
@@ -41,8 +44,8 @@ for i = 0,63 do
     end
 end
 
--- Bind the 3D texture to the fields
+-- Set the 3D textures to the field settings
 -- The binding requires a field (!), a bounding box where it is applied, and the internal name of the parameter (see tooltip in UI)
-bind_tex3d_to_setting(density,v(-r,-r,0),v(r,r,h),'infill_percentage_0')
-bind_tex3d_to_setting(angle,v(-r,-r,0),v(r,r,h),'infill_angle_0')
-bind_tex3d_to_setting(shrink,v(-r,-r,0),v(r,r,h),'kgon_x_shrink_0')
+set_setting_value(density,v(-r,-r,0),v(r,r,h),'infill_percentage_0')
+set_setting_value(angle,v(-r,-r,0),v(r,r,h),'infill_angle_0')
+set_setting_value(shrink,v(-r,-r,0),v(r,r,h),'kgon_x_shrink_0')
