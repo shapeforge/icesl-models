@@ -21,7 +21,10 @@ ratios = tex3d_rgb8f(64,64,64)
 for i = 0,63 do
     for j = 0,63 do
         for k = 0,63 do
-            ratios:set(i,j,k, v(i/63.0,j/63.0,1.0 - i/63.0 - j/63.0))
+            r0 = i/63.0
+            r1 = j/63.0
+            r2 = k/63.0 - 0.5*r1
+            ratios:set(i,j,k, v(r0,r1,r2) / (r0+r1+r2))
         end
     end
 end
