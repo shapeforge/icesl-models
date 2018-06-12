@@ -46,6 +46,6 @@ end
 
 -- Set the 3D textures to the field settings
 -- The binding requires a field (!), a bounding box where it is applied, and the internal name of the parameter (see tooltip in UI)
-set_setting_value(density,v(-r,-r,0),v(r,r,h),'infill_percentage_0')
-set_setting_value(angle,v(-r,-r,0),v(r,r,h),'infill_angle_0')
-set_setting_value(shrink,v(-r,-r,0),v(r,r,h),'kgon_x_shrink_0')
+set_setting_value('infill_percentage_0',density,v(-r,-r,0),v(r,r,h))
+set_setting_value('infill_angle_0',angle,v(-r,-r,0),v(r,r,h))
+set_setting_value('kgon_x_shrink_0',shrink,v(-r,-r,0),v(r,r,h))

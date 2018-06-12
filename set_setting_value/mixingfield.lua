@@ -31,4 +31,4 @@ end
 
 -- Bind the 3D texture to the field
 -- The binding requires a field (!), a bounding box where it is applied, and the internal name of the parameter (see tooltip in UI)
-set_setting_value(ratios,v(-sz/2,-sz/2,-sz/2),v(sz/2,sz/2,sz/2),'micro_mixing_field')
+set_setting_value('micro_mixing_field',ratios,v(-sz/2,-sz/2,-sz/2),v(sz/2,sz/2,sz/2))
