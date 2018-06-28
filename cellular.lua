@@ -17,6 +17,3 @@ end
 r = difference(difference(shape,merge(centroids)),
                        translate(0,0,-20)*ccube(20,20,10))
 emit(r)
-
--- save as mesh
--- dump(to_mesh(r,0.2),'output.stl')
