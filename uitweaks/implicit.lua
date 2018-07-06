@@ -1,10 +1,11 @@
 scl = ui_scalar('pscale',4.0,1.0,10.0)
-
+print(' ' .. scl+1)
 sph = implicit(v(-15,-15,-15), v(15,15,15), [[
+uniform float scl=4.5;
 float perturb(vec3 p)
 {
   vec3 t = vec3(3,0,0);
-  return ]]..scl..[[*abs(noise((p+t)/7.0+2.0));
+  return scl*abs(noise((p+t)/7.0+2.0));
 }
 float distanceEstimator(vec3 p) 
 {
@@ -35,7 +36,7 @@ float distanceEstimator(vec3 p)
 ]])
 
 r = ui_scalar('radius',12,8,20)
-
+set_uniform_scalar(sph,'scl',scl)
 s = 
 union{
 difference(

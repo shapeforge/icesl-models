@@ -1,4 +1,4 @@
-c = load_centered(Path .. 'iPhone_case_v2.stl')
+c = load_centered('iPhone_case_v2.stl')
 
 b = translate(0,-5,-4)*ccube(50,90,5)
 
@@ -7,18 +7,18 @@ if ui_scalar then
   scale = ui_scalar('scale',1.0, 1.0,10.0)
   noisy = ui_scalar('noisy',2.0, 0.0,5.0)
   angle = ui_scalar('angle',45.0, 0.0,180.0)
-  type = ui_scalar('type',1.0, 0.0,1.0)
+  selected = ui_scalar('type',1.0, 0.0,1.0)
   thick = ui_scalar('thick',0.0, -1.0,1.0)
 else
   strength = 2.0
   scale = 1.0
   noisy = 2.0
   angle = 45.0
-  type = 1.0
+  selected = 1.0
   thick = 0.0
 end
 
-if type < 0.5 then
+if selected < 0.5 then
 imp = implicit(v(-55,-55,-6), v(55,55,-3), [[
 uniform float scale;
 uniform float strength;
