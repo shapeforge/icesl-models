@@ -1,5 +1,4 @@
 scl = ui_scalar('pscale',4.0,1.0,10.0)
-print(' ' .. scl+1)
 sph = implicit(v(-15,-15,-15), v(15,15,15), [[
 uniform float scl=4.5;
 float perturb(vec3 p)
