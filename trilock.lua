@@ -13,7 +13,7 @@ end
 function bar(diam,p0,p1)
   delta = p1 - p0
   l = math.sqrt(dot(delta,delta))
-  return merge{
+  return union{
      pos(p0,p1) * rotate(90,Y) * translate(0,0,-l/2) * cylinder(diam/2,l),
 	 translate(p0)*sphere(diam/2),
 	 translate(p1)*sphere(diam/2)}	 
