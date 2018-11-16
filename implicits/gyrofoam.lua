@@ -1,4 +1,4 @@
-gyro = implicit(v(-30,-30,-30), v(30,30,30), [[
+gyro = implicit_distance_field(v(-30,-30,-30), v(30,30,30), [[
 // Simple Gyroid Isosurface (spherical crop)
 //
 // Mikael Hvidtfeldt Christensen
@@ -26,7 +26,7 @@ float DE2(vec3 z)
 }
 
 
-float distanceEstimator(vec3 p) 
+float distance(vec3 p) 
 {
   return 0.3*DE2(p);
 }

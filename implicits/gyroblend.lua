@@ -1,4 +1,4 @@
-gyro = implicit(v(-10,-10,-10), v(10,10,10), [[
+gyro = implicit_distance_field(v(-10,-10,-10), v(10,10,10), [[
 // Simple Gyroid Isosurface (spherical crop)
 //
 // Mikael Hvidtfeldt Christensen

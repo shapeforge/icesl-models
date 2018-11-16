@@ -1,5 +1,5 @@
-sphere = implicit(v(-8,-8,-8), v(8,8,8), [[
-float distanceEstimator(vec3 p) {
+sphere = implicit_distance_field(v(-8,-8,-8), v(8,8,8), [[
+float distance(vec3 p) {
 	return sphere(p,10);
 }
 ]])
