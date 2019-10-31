@@ -11,7 +11,7 @@ r = 50
 h = 5
 
 set_setting_value('infill_type_0','Polyfoam')
-set_setting_value('num_shells_0',0)
+set_setting_value('num_shells_0',1)
 set_setting_value('cover_thickness_mm_0',0)
 
 emit(cylinder(r,h))
@@ -33,7 +33,7 @@ shrink  = tex3d_r8f(64,64,64)
 for i = 0,63 do
     for j = 0,63 do
         for k = 0,63 do
-            delta = v(i,j,0) - v(31.5,31.5,0)
+            delta = v(i,j,0) - v(31.5,31.5,0) 
             a     = (180.0 + atan2(delta.x,delta.y)) / 360.0
             _,a     = math.modf(a+0.25) -- rotate 90 degree
             l     = length(delta) / 32.0
@@ -48,4 +48,5 @@ end
 -- The binding requires a field (!), a bounding box where it is applied, and the internal name of the parameter (see tooltip in UI)
 set_setting_value('infill_percentage_0',density,v(-r,-r,0),v(r,r,h))
 set_setting_value('infill_angle_0',angle,v(-r,-r,0),v(r,r,h))
-set_setting_value('kgon_x_shrink_0',shrink,v(-r,-r,0),v(r,r,h))
+-- set_setting_value('kgon_x_shrink_0',shrink,v(-r,-r,0),v(r,r,h))
+ 
