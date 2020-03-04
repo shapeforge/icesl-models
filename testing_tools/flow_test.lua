@@ -33,7 +33,7 @@ plates_spacing = ui_number("Plates spacing",5,0,10)
 
 -- flow limits
 min_flow = round(ui_scalar("Minimum flow",0.95,0.5,2.0),3)
-max_flow = round(ui_scalar("Maximum flow",1.05,min_flow,2.0),3)
+max_flow = round(ui_scalar("Maximum flow",math.max(1.05,min_flow),min_flow,2.0),3)
 flow_step = round(ui_scalar("Flow step",0.01,0.01,0.1),3)
 
 -- printer bed size (TODO: this will be fetched from a future get_setting_value("setting_name"))
