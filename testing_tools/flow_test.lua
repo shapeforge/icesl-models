@@ -5,6 +5,9 @@
 
 -- Feel free to customize to test your own material.
 
+-- font importation
+f = font(Path .. '../fonts/SourceSansPro-Regular.ttf')
+
 --#################################################
 -- internal functions
 
@@ -41,9 +44,6 @@ bed_x_mm = 220
 bed_y_mm = 220
 
 extruder = 0
-
--- font importation
-f = font(Path .. '../fonts/SourceSansPro-Regular.ttf')
 
 --#################################################
 
