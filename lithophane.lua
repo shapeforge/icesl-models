@@ -4,7 +4,7 @@
 -- MFX Team (c)
 
 
-filename = ui_openFile('Image (set this to your own image!)')
+filename = ui_selectFile('Image (set this to your own image!)')
 vox_size = ui_scalar('Resolution (mm)', 0.1, 0.05, 1)
 width = ui_scalar('Thickness', 3.2, 1.0, 5)
 base_perc = ui_scalar('Base (% of thickness)', 0.25, 0.1, 1)
