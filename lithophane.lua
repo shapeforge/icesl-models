@@ -5,10 +5,10 @@
 
 
 filename = ui_selectFile('Image (set this to your own image!)')
-vox_size = ui_scalar('Resolution (mm)', 0.1, 0.05, 1)
-width = ui_scalar('Thickness', 3.2, 1.0, 5)
-base_perc = ui_scalar('Base (% of thickness)', 0.25, 0.1, 1)
-scale_factor = ui_scalar('Scale', 2.5, 1.0, 5)
+vox_size = ui_scalar('Pixel size (mm)', 0.1, 0.05, 1)
+width = ui_scalar('Max. thickness (mm)', 3.2, 1.0, 5)
+base_perc = ui_scalar('Min. thickness (% of thickness)', 0.25, 0.1, 1)
+scale_factor = ui_scalar('Scale (XY)', 2.5, 1.0, 5)
 
 if filename == '' then
   filename = Path..'beethoven.jpg'
