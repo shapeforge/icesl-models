@@ -3,11 +3,13 @@
 -- 23/03/2023
 -- MFX Team (c)
 
+set_setting_value('brim_distance_to_print_mm', 0)
+set_setting_value('brim_num_contours', 12)
 
 filename = ui_selectFile('Image (set this to your own image!)')
-vox_size = ui_scalar('Pixel size (mm)', 0.1, 0.05, 1)
-width = ui_scalar('Max. thickness (mm)', 3.2, 1.0, 5)
-base_perc = ui_scalar('Min. thickness (% of thickness)', 0.25, 0.1, 1)
+vox_size = ui_scalar('Pixel-to-voxel size (mm)', 0.1, 0.05, 1)
+max_thickness = ui_scalar('Maximum thickness (mm)', 3.2, 1.0, 5)
+min_thickness = ui_scalar('Minimum thickness (% of thickness)', 25, 1, 100)
 scale_factor = ui_scalar('Scale (XY)', 2.5, 1.0, 5)
 
 if filename == '' then
@@ -15,8 +17,8 @@ if filename == '' then
 end
 
 pixels = load_image(filename)
-height_voxels = math.floor(width / vox_size)
-base_voxels = math.floor(height_voxels * base_perc)
+height_voxels = math.floor(max_thickness / vox_size)
+base_voxels = math.floor(min_thickness / vox_size)
 img_size_x = (#pixels[0] + 1)
 img_size_y = (#pixels + 1)
 texture = tex3d_r8f(img_size_x,img_size_y,height_voxels)
