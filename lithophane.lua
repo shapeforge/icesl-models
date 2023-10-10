@@ -9,7 +9,7 @@ set_setting_value('brim_num_contours', 12)
 filename = ui_selectFile('Image (set this to your own image!)')
 vox_size = ui_scalar('Pixel-to-voxel size (mm)', 0.1, 0.05, 1)
 max_thickness = ui_scalar('Maximum thickness (mm)', 3.2, 1.0, 5)
-min_thickness = ui_scalar('Minimum thickness (% of thickness)', 25, 1, 100)
+min_thickness = ui_scalar('Minimum thickness (% of max. thickness)', 25, 1, 100)
 scale_factor = ui_scalar('Scale (XY)', 2.5, 1.0, 5)
 
 if filename == '' then
@@ -18,7 +18,7 @@ end
 
 pixels = load_image(filename)
 height_voxels = math.floor(max_thickness / vox_size)
-base_voxels = math.floor(min_thickness / vox_size)
+base_voxels = math.floor(height_voxels * min_thickness / 100)
 img_size_x = (#pixels[0] + 1)
 img_size_y = (#pixels + 1)
 texture = tex3d_r8f(img_size_x,img_size_y,height_voxels)
