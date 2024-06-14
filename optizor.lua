@@ -44,5 +44,5 @@ if image_x_res > image_y_res then
 else
 	image_ratio = image_x_res / image_y_res
 	emit(cube(print_extent * image_ratio, print_extent, layer_thickness))
-	emit(translate(0,0,-2 * layer_thickness) * cube(print_extent, image_ratio * print_extent, layer_thickness * 2), 1)
+	emit(translate(0,0,-2 * layer_thickness) * cube(print_extent * image_ratio, print_extent, layer_thickness * 2), 1)
 end

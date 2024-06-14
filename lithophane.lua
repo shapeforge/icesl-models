@@ -3,17 +3,26 @@
 -- 23/03/2023
 -- MFX Team (c)
 
+-- Brushed used
+brush = 0
+
+-- Printing settings
+set_setting_value("z_layer_height_mm", 0.2) -- quality
 set_setting_value('brim_distance_to_print_mm', 0)
 set_setting_value('brim_num_contours', 12)
+set_setting_value("num_shells_"..brush, 10) -- to avoid infill
+set_setting_value("enable_z_lift", true)
+set_setting_value("travel_straight", false)
 
+-- Tweaks
 filename = ui_selectFile('Image (set this to your own image!)')
 vox_size = ui_scalar('Pixel-to-voxel size (mm)', 0.1, 0.05, 1)
 max_thickness = ui_scalar('Maximum thickness (mm)', 3.2, 1.0, 5)
 min_thickness = ui_scalar('Minimum thickness (% of max. thickness)', 25, 1, 100)
-scale_factor = ui_scalar('Scale (XY)', 2.5, 1.0, 5)
+scale_factor = ui_scalar('Scale (XY)', 2.5, 0.5, 5)
 
 if filename == '' then
-  filename = Path..'beethoven.jpg'
+  filename = Path..'beethoven.jpg' -- jpeg extension won't work, change it to 'jpg'
 end
 
 pixels = load_image(filename)
@@ -39,4 +48,4 @@ end
 
 voxels = to_voxel_solid(texture, vox_size)
 scaled_voxels = rotate(90,X) * scale(scale_factor,scale_factor,1) * voxels
-emit(scaled_voxels)
+emit(scaled_voxels, brush)
